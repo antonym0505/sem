@@ -1,0 +1,10 @@
+// Sass variables and global styles
+// Use .scss for custom design tokens and component styles
+// Use .css files for Tailwind utilities
+
+$primary: #1976d2;
+$font-stack: 'Roboto', sans-serif;
+
+:root {
+  font-family: $font-stack;
+}

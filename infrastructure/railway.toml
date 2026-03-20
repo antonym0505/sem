@@ -1,0 +1,19 @@
+# Railway Project Structure
+#
+# This monorepo deploys as two independent Railway services.
+# In the Railway dashboard, configure each service with a different root directory:
+#
+#   Service: frontend  →  Root Directory: /frontend
+#   Service: backend   →  Root Directory: /backend
+#
+# Each directory contains its own railway.toml which Railway reads
+# when deploying that service.
+#
+# Environment variables to configure in Railway dashboard:
+#
+#   frontend service:
+#     VITE_API_URL = https://<backend-service>.railway.app
+#
+#   backend service:
+#     ALLOWED_ORIGINS = ["https://<frontend-service>.railway.app"]
+#     DEBUG = false
