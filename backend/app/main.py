@@ -1,10 +1,22 @@
+from contextlib import asynccontextmanager
+from typing import AsyncGenerator
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
-from app.routers import health
+from app.database import init_db
+import app.models.event  # noqa: F401 — registers Event with Base.metadata
+from app.routers import events, health
 
-app = FastAPI(title=settings.app_name, debug=settings.debug)
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    await init_db()
+    yield
+
+
+app = FastAPI(title=settings.app_name, debug=settings.debug, lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,6 +27,7 @@ app.add_middleware(
 )
 
 app.include_router(health.router)
+app.include_router(events.router)
 
 
 @app.get("/")

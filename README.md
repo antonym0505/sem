@@ -1,4 +1,4 @@
-# Monorepo Template
+# SEM
 
 A minimal polyglot monorepo: React/TypeScript frontend + FastAPI/Python backend.
 

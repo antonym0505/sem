@@ -1,10 +1,12 @@
-// Sass variables and global styles
-// Use .scss for custom design tokens and component styles
-// Use .css files for Tailwind utilities
-
-$primary: #1976d2;
-$font-stack: 'Roboto', sans-serif;
+$brand-orange: #f97316;
+$brand-orange-dark: #ea6c0a;
+$brand-cream: #fef9f3;
+$brand-slate: #1e293b;
+$brand-gray: #64748b;
+$font-stack: 'Inter', system-ui, sans-serif;
 
 :root {
   font-family: $font-stack;
+  background-color: $brand-cream;
+  color: $brand-slate;
 }

@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     app_name: str = "Backend API"
     debug: bool = False
     allowed_origins: list[str] = ["http://localhost:5173"]
+    database_url: str = "sqlite+aiosqlite:///./sem.db"
 
 
 settings = Settings()
